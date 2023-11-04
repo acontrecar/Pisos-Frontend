@@ -1,0 +1,21 @@
+.grid {
+  display: flex;
+  height: calc(100vh - 80px);
+  padding: 5%;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+
+    div {
+      &:first-child {
+        margin-bottom: 10%;
+      }
+    }
+  }
+}

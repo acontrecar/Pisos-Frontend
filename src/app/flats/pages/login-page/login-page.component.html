@@ -1,0 +1,25 @@
+<div class="login-container">
+  <div class="login-header">
+    <h1>Login</h1>
+    <span>Invalid Login</span>
+  </div>
+  <div class="login-form">
+    <form [formGroup]="myForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <img src="../../../../assets/svgs/user-alt-1-svgrepo-com (1).svg" alt="">
+        <input type="text" formControlName="username" autocomplete="username" id="username" name="username"
+          placeholder="Enter your username" required>
+      </div>
+      <div class="form-group">
+        <img src="../../../../assets/svgs/password-svgrepo-com (1).svg" alt="">
+        <input type="password" formControlName="password" autocomplete="current-password" id="password" name="password"
+          placeholder="Enter your password" required>
+      </div>
+      <button type="submit" class="btn-submit">Login</button>
+
+    </form>
+    <span class="subtitle-account">
+      <a routerLink="/register">Don't have an account? Click me</a>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="login-container">
+  <div class="login-header">
+    <h1>Register</h1>
+  </div>
+  <div class="login-form">
+    <form [formGroup]="myForm" (ngSubmit)="register()">
+      <div class="form-group">
+        <img src="../../../../assets/svgs/user-alt-1-svgrepo-com (1).svg" alt="">
+        <input type="text" formControlName="username" autocomplete="username" id="username" name="username"
+          placeholder="Enter an username" required>
+        <span *ngIf="isValidField('username')" class="form-group_span__danger">
+          {{getFieldError('username')}}
+        </span>
+      </div>
+      <div class="form-group">
+        <img src="../../../../assets/svgs/email-1-svgrepo-com.svg" alt="">
+        <input type="email" formControlName="email" autocomplete="email" id="email" name="email"
+          placeholder="Enter a email" required>
+        <span *ngIf="isValidField('email')" class="form-group_span__danger">
+          {{getFieldError('email')}}
+        </span>
+      </div>
+      <div class="form-group">
+        <img src="../../../../assets/svgs/password-svgrepo-com (1).svg" alt="">
+        <input type="password" formControlName="password" autocomplete="current-password" id="password" name="password"
+          placeholder="Enter a password" required>
+        <span *ngIf="isValidField('password')" class="form-group_span__danger">
+          {{getFieldError('password')}}
+        </span>
+      </div>
+      <div class="form-group">
+        <img src="../../../../assets/svgs/password-svgrepo-com (1).svg" alt="">
+        <input type="password" formControlName="confirmPassword" autocomplete="current-password" id="confirmPassword"
+          name="confirmPassword" placeholder="Enter a password" required>
+        <span *ngIf="isValidField('confirmPassword')" class="form-group_span__danger">
+          {{getFieldError('confirmPassword')}}
+        </span>
+      </div>
+      <button type="submit" class="btn-submit">Login</button>
+
+    </form>
+    <span class="subtitle-account">
+      <a routerLink="/">Have an account? Click me</a>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+@import "../../../../../styles.scss";
+
+header {
+  width: 100%;
+  height: 80px;
+
+  background-color: $my-color-300;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 100px;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: $my-color-100;
+}
+
+.hamburger {
+  font-size: 30px;
+  cursor: pointer;
+  width: 30px;
+  display: none;
+  img {
+    width: 100%;
+  }
+}
+
+.nav-bar {
+  z-index: 999;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+.nav-bar ul li a {
+  display: block;
+  color: $my-color-100;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.nav-bar ul li a:hover {
+  color: $my-color-200;
+  background: #fefefe;
+}
+
+.nav-bar ul li a:active {
+  color: $my-color-200;
+  background: #fefefe;
+}
+
+@media screen and (max-width: 1320px) {
+  header {
+    padding: 0 50px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  header {
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-bar {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    right: 0;
+    height: 0;
+    background-color: $my-color-300;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .nav-bar.active {
+    height: 300px;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-bar ul {
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    opacity: 0;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+  }
+}

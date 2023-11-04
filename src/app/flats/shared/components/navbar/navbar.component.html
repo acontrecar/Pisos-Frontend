@@ -1,0 +1,13 @@
+<header>
+  <div class="logo">Flats</div>
+  <div id="hamburger" class="hamburger" (click)="toggleMenu()">
+    <img src="../../../../../assets/svgs/menu-hamburger.svg" alt="">
+  </div>
+
+  <nav class="nav-bar" [ngClass]="{'active' : toggle}">
+    <ul>
+      <li><a href="" class="activate" routerLink="">Login</a></li>
+      <li><a href="" routerLink="/register">Register</a></li>
+    </ul>
+  </nav>
+</header>
