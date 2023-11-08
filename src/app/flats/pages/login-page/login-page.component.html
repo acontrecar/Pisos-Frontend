@@ -1,7 +1,7 @@
 <div class="login-container">
   <div class="login-header">
     <h1>Login</h1>
-    <span>Invalid Login</span>
+    <span *ngIf="isNotCorrectUser">Invalid Login</span>
   </div>
   <div class="login-form">
     <form [formGroup]="myForm" (ngSubmit)="login()">

@@ -1,1 +1,16 @@
-<p>navbar works!</p>
+<header>
+  <div (click)="navigate()" class="logo">Flats</div>
+  <div id="hamburger" class="hamburger" (click)="toggleMenu()">
+    <img src="../../../../../assets/svgs/menu-hamburger.svg" alt="">
+  </div>
+
+  <nav class="nav-bar" [ngClass]="{'active' : toggle}">
+    <ul>
+      <li *ngFor="let item of navbarItems">
+        <a href="" [routerLink]="item.url">{{item.label}}</a>
+      </li>
+    </ul>
+  </nav>
+
+  <user-profile />
+</header>

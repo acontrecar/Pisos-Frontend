@@ -1,0 +1,9 @@
+@import "../../../../styles.scss";
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: $my-color-300;
+  width: 100vw;
+  text-align: center;
+}
