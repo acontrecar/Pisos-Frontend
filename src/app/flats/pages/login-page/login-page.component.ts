@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, inject } from '@angular/core';
-import { FlatsService } from '../../services/flats.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class LoginPageComponent {
   public isNotCorrectUser = false;
 
   private fb = inject(FormBuilder);
-  private flatService = inject(FlatsService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   public myForm: FormGroup = this.fb.group({
@@ -26,7 +26,7 @@ export class LoginPageComponent {
       return;
     }
 
-    this.flatService.login(username, password).subscribe({
+    this.authService.login(username, password).subscribe({
       next: () => {
         alert('Success!');
         this.router.navigate(['/flat']);

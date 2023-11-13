@@ -1,6 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, inject } from '@angular/core';
-import { FlatsService } from '../../services/flats.service';
+import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class RegisterPageComponent {
   private fb = inject(FormBuilder);
-  private flatService = inject(FlatsService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   public myForm: FormGroup = this.fb.group({
@@ -82,7 +82,7 @@ export class RegisterPageComponent {
       return;
     }
 
-    this.flatService.register(data).subscribe({
+    this.authService.register(data).subscribe({
       next: () => {
         alert('Success!');
         this.router.navigateByUrl('/');

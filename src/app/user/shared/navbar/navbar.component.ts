@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, computed, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'user-shared-navbar',
@@ -23,6 +24,10 @@ export class NavbarComponent {
     {
       label: 'Page',
       url: './pages',
+    },
+    {
+      label: 'Friends',
+      url: './friends',
     },
   ];
 

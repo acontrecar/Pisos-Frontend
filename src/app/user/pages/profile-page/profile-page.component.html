@@ -1,23 +1,32 @@
-<div class="profile-container">
+<div class="profile-header" *ngIf="user()">
+  <h2>Welcome {{ user()?.username }}<span class="span"> &#160;</span></h2>
+</div>
+
+<button (click)="logOut()">LogOut</button>
+
+<div class="profile-container" *ngIf="user()">
   <div class="profile-form">
     <div class="avatar">
-      <img src="../../../../assets/imgs/image-placeholder.png" alt="Avatar">
-      <button>
-        Editar
+      <img [src]="user()?.image?.secure_url || '../../../../assets/imgs/image-placeholder.png'" alt="Avatar">
+      <button (click)="fileInput.click()">
+        <img src="../../../../assets/svgs/pencilEdit.svg" alt="">
       </button>
     </div>
 
-    <!-- <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
-     -->
 
-    <input #inputField hidden type="file" />
+    <input #fileInput hidden type="file" accept="image/*" (change)="onFileChange($event)" />
+
+    <span *ngIf="isNotCorrectName" style="color: red;">Incorrect name</span>
+    <span *ngIf="isCorrectName" style="color: green;">Correct name</span>
 
 
-    <form>
-      <input type="text" placeholder="Nombre">
-      <input type="text" placeholder="Apellido">
-      <input type="email" placeholder="Correo electrónico">
-      <input type="text" placeholder="Teléfono">
+
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+      <input type="text" disabled placeholder="Username" [value]="user()?.username">
+      <input type="text" placeholder="Name" [value]="user()?.name" formControlName="name">
+      <input type="email" disabled placeholder="Email" [value]="user()?.email">
+
+      <button class="btn" type="submit">Save</button>
     </form>
 
   </div>

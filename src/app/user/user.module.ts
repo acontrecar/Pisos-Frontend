@@ -11,6 +11,8 @@ import { TasksPageComponent } from './pages/tasks-page/tasks-page.component';
 import { DebtsPageComponent } from './pages/debts-page/debts-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FriendsPageComponent } from './pages/friends-page/friends-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
     DebtsPageComponent,
     ProfileComponent,
     ProfilePageComponent,
+    FriendsPageComponent,
   ],
-  imports: [CommonModule, UserRoutingModule],
+  imports: [CommonModule, UserRoutingModule, ReactiveFormsModule],
 })
 export class UserModule {}

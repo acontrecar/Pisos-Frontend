@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Search users</h1>
+
+  <div class="search-bar">
+    <input type="text" (keyup)="onKeyUp(inputSearch.value)" #inputSearch placeholder="Seach friends...">
+  </div>
+  <div class="users">
+    <ul>
+      <li *ngFor="let user of users().users">
+        <img [src]="user?.image?.secure_url || '../../../../assets/svgs/user-alt-1-svgrepo-com.svg'"
+          alt="{{ user?.name || user.username }}">
+        <span>{{ user?.name || user.username }}</span>
+        <!-- <pre>{{user | json}}</pre> -->
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="friends">
+    <h2>Friends</h2>
+
+    <ul>
+      <li *ngFor="let friend of friends">
+        <img src="{{ friend.image }}" alt="{{ friend.name }}">
+        <span>{{ friend.name }}</span>
+      </li>
+    </ul>
+  </div> -->
+</div>

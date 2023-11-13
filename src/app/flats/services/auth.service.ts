@@ -14,7 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root',
 })
-export class FlatsService {
+export class AuthService {
   private readonly baseUrl: string = environment.baseUrl;
   private _currentUser = signal<User | null>(null);
   private _authStatus = signal<AuthStatus>(AuthStatus.checking);

@@ -1,3 +1,4 @@
 <div class="profile-container">
-  <img (click)="navigate()" class="user-image" src="../../../../assets/imgs/image-placeholder.png" alt="Profile-Img">
+  <img (click)="navigate()" class="user-image"
+    [src]=" user()?.image?.secure_url || '../../../../assets/imgs/image-placeholder.png'" alt="Profile-Img">
 </div>

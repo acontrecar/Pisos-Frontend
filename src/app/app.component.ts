@@ -1,5 +1,5 @@
 import { Component, computed, effect, inject } from '@angular/core';
-import { FlatsService } from './flats/services/flats.service';
+import { AuthService } from './flats/services/auth.service';
 import { AuthStatus } from './flats/interfaces';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  private flatService = inject(FlatsService);
+  private authService = inject(AuthService);
   private router = inject(Router);
 
   public finishedAuthCheck = computed<boolean>(() => {
-    if (this.flatService.authStatus() === AuthStatus.checking) {
+    if (this.authService.authStatus() === AuthStatus.checking) {
       return false;
     }
 
@@ -21,7 +21,7 @@ export class AppComponent {
   });
 
   public authStatusChangeEffect = effect(() => {
-    switch (this.flatService.authStatus()) {
+    switch (this.authService.authStatus()) {
       case AuthStatus.checking:
         console.log('Checking authentication status');
         return;
